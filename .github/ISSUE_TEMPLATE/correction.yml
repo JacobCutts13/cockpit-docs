@@ -1,0 +1,45 @@
+name: "Correction"
+description: "Something here is wrong, unclear, or a dead link."
+title: "Fix: "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For anything factually wrong, self-contradictory, unclear, or a broken link.
+
+        Corrections are welcome and are the most useful thing you can file. These docs
+        describe a system that keeps changing, and nothing enforces that they keep up —
+        drift is the expected failure mode, not a surprise.
+
+        If instead you want to know *how* something works, use the question form.
+
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: File, and a line or heading if you have one.
+      placeholder: "docs/06-agent-hooks.md — the echo-suppression section"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's wrong
+      description: >
+        Quote the passage if you can. If it contradicts another chapter, say which.
+      placeholder: |
+        It says the hook payload cannot distinguish an injected prompt from a typed
+        one, but the earlier paragraph implies the pane identifier is enough to tell
+        them apart. One of those is wrong.
+    validations:
+      required: true
+
+  - type: textarea
+    id: correction
+    attributes:
+      label: What it should say
+      description: Optional. A guess is fine — it does not have to be right.
+    validations:
+      required: false
